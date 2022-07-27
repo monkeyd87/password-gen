@@ -82,6 +82,8 @@ function generatePassword(){
 
   let upper = getUpper()
 
+  let num  = GetNum()
+
   if(upper){
     lst.push(...upper)
   }
@@ -91,13 +93,21 @@ function generatePassword(){
   if(specialChar){
     lst.push(...specialChar)
   }
+  if(num){
+    lst.push(...num)
+  }
 
-  
-  for(let i = 0; i < len; i++){
-    pass += lst[Math.floor(Math.random()*lst.length)]
+  if(lst.length > 1){
+    for(let i = 0; i < len; i++){
+      pass += lst[Math.floor(Math.random()*lst.length)]
+
+    }
+    return  pass
+  }else{
+    alert('must make selections');
+    generatePassword()
   }
  
-  return  pass
 
 
   
